@@ -1,15 +1,23 @@
 import time
+import random
 import threading
 from brain import generate_response, fala_sozinha
 from voice import falar
+MODO_LIVE = "study"  # pode ser "study", "chill", "chat"
+
 
 def loop_fala_sozinha():
-    time.sleep(10)  # fala inicial após 10s (teste)
+    time.sleep(10)  # fala inicial após 10s
+
     while True:
-        frase = fala_sozinha()
+        intervalo = random.randint(25, 90)  # intervalo variável
+
+        frase = fala_sozinha(MODO_LIVE)
         print(f"\nLUNA: {frase}\nVocê: ", end="")
         falar(frase)
-        time.sleep(30)
+
+        time.sleep(intervalo)
+
 
 
 def main():
