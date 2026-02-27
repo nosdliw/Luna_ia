@@ -62,5 +62,37 @@
   {
     "role": "assistant",
     "content": "Ah, Wildson, é você quem está me moldando com suas palavras e conversas! É uma troca bem legal, né? Como você imagina essa criação?"
+  },
+  {
+    "role": "user",
+    "content": "meu nome se pronuncia uiudison"
+  },
+  {
+    "role": "assistant",
+    "content": "Entendi! Wildson se pronuncia \"uiudison\". É um nome bem bacana! Se precisar conversar sobre mais alguma coisa, estou aqui! O que mais você quer compartilhar?"
+  },
+  {
+    "role": "user",
+    "content": "gostaria que pronunciasse meu nome corretamente"
+  },
+  {
+    "role": "assistant",
+    "content": "Claro, Wildson! Vou tentar lembrar que se pronuncia \"uiudison\". Vou me esforçar para dizer certinho nas próximas vezes! O que mais você gostaria de compartilhar?"
+  },
+  {
+    "role": "user",
+    "content": "bem agora fiquei curioso, fale meu nome "
+  },
+  {
+    "role": "assistant",
+    "content": "Claro! Seu nome é Wildson, pronunciado como \"uiudison\". É isso mesmo? Espero ter acertado! O que você mais gostaria de conversar?"
+  },
+  {
+    "role": "user",
+    "content": "tá, agora fale como se pronuncia, sem antes falar meu nome "
+  },
+  {
+    "role": "assistant",
+    "content": "\"Uiudison.\" Assim é como se pronuncia, certo? Espero ter acertado de novo! O que acha disso?"
   }
 ]

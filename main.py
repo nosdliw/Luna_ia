@@ -1,40 +1,48 @@
-import time
-import random
-import threading
+import os
+from dotenv import load_dotenv
 from brain import generate_response, fala_sozinha
 from voice import falar
-MODO_LIVE = "study"  # pode ser "study", "chill", "chat"
 
+# ==============================
+# CONFIGURAÇÃO INICIAL
+# ==============================
 
-def loop_fala_sozinha():
-    time.sleep(10)  # fala inicial após 10s
+load_dotenv()
 
-    while True:
-        intervalo = random.randint(25, 90)  # intervalo variável
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+ELEVEN_API_KEY = os.getenv("ELEVEN_API_KEY")
 
-        frase = fala_sozinha(MODO_LIVE)
-        print(f"\nLUNA: {frase}\nVocê: ", end="")
-        falar(frase)
+if not OPENAI_API_KEY:
+    print("❌ OPENAI_API_KEY não encontrada.")
+    exit()
 
-        time.sleep(intervalo)
+if not ELEVEN_API_KEY:
+    print("❌ ELEVEN_API_KEY não encontrada.")
+    exit()
 
+print("LUNA.exe iniciada. Digite algo (Ctrl+C para sair):")
 
+# ==============================
+# LOOP PRINCIPAL
+# ==============================
 
-def main():
-    print("LUNA.exe iniciada. Digite algo (Ctrl+C para sair):")
-
-    thread_fala = threading.Thread(target=loop_fala_sozinha, daemon=True)
-    thread_fala.start()
-
+while True:
     try:
-        while True:
-            user_input = input("Você: ")
-            if user_input.strip():
-                resposta = generate_response(user_input)
-                print(f"LUNA: {resposta}")
-                falar(resposta)
+        user_input = input("Você: ")
+
+        if user_input.lower() in ["sair", "exit", "quit"]:
+            print("LUNA.exe finalizada.")
+            break
+
+        resposta = generate_response(user_input)
+
+        print(f"LUNA: {resposta}")
+
+        try:
+            falar(resposta)
+        except Exception as e:
+            print(f"[ERRO VOZ] {e}")
+
     except KeyboardInterrupt:
         print("\nLUNA.exe finalizada.")
-
-if __name__ == "__main__":
-    main()
+        break
